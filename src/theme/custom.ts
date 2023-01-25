@@ -11,5 +11,5 @@ export default createTheme({
             main: green[200]
         }
     },
-    spacing: 8
+    spacing: 8 //default - 8px
 })
