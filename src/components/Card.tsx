@@ -2,7 +2,7 @@ import React from 'react'
 import { Box, Grid, Paper, Typography, Rating, createTheme } from '@mui/material'
 import { AccessTimeFilled } from '@mui/icons-material'
 
-const Card = () => {
+const Card = ({color}: {color: string}) => {
     return (
         <Grid item xs={3}>
             <Paper elevation={3} sx={{
@@ -21,7 +21,7 @@ const Card = () => {
                         <AccessTimeFilled sx={{
                             width: '1rem'
                         }} />
-                        <Typography variant="body2" component={'p'} sx={{
+                        <Typography color={color} variant="body2" component={'p'} sx={{
                             textAlign: 'center'
                         }}>
                             5 hours

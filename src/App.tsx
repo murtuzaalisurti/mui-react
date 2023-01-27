@@ -12,6 +12,7 @@ import themeContext from './context/themeContext'
 // theme - MUI
 import { ThemeProvider } from '@mui/material'
 import { customThemeObj } from './theme/custom'
+import StyledButton from './components/styled/Button'
 // import theme from './theme/custom'
 
 function App() {
@@ -34,11 +35,12 @@ function App() {
             })
           }}>Change Theme {themeMode}
           </Button>
+          <StyledButton>Styled Button</StyledButton>
           <Grid container spacing={5}>
-            <Card />
-            <Card />
-            <Card />
-            <Card />
+            <Card color="primary" />
+            <Card color='secondary' />
+            <Card color='primary' />
+            <Card color='secondary' />
           </Grid>
         </Container>
       </ThemeProvider>
