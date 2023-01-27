@@ -6,6 +6,6 @@ const StyledButton = styled(Button)(({theme}) => {
         color: ${theme.palette.primary.main};
         background-color: ${theme.palette.secondary.main};
     `
-})
+}) as typeof Button
 
 export default StyledButton

@@ -1,6 +1,5 @@
-import { PaletteMode, ThemeOptions, createTheme } from '@mui/material'
+import { PaletteMode } from '@mui/material'
 import { blue, green, red, yellow } from '@mui/material/colors'
-import { TthemeState } from '../context/themeContext'
 
 export const customThemeObj = (mode: PaletteMode) => {
     return {
@@ -8,11 +7,12 @@ export const customThemeObj = (mode: PaletteMode) => {
             mode,
             ...(mode === "light" ? {
                 primary: {
-                    main: yellow[300]
+                    main: yellow[300],
+                    dark: yellow['A700']
                 },
                 secondary: {
                     main: blue[200]
-                }
+                },
             } : {
                 primary: {
                     main: red[300]
@@ -20,20 +20,8 @@ export const customThemeObj = (mode: PaletteMode) => {
                 secondary: {
                     main: green[200]
                 }
-            })
+            }),
+            contrastThreshold: 4.5
         }
     }
 }
-
-// export default createTheme({
-//     palette: {
-//         mode: "dark",
-//         primary: {
-//             main: "#CCC"
-//         },
-//         secondary: {
-//             main: green[200]
-//         }
-//     },
-//     spacing: 8 //default - 8px
-// })

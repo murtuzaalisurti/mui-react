@@ -1,5 +1,3 @@
-
-
 import { useState, useContext, useMemo } from 'react'
 import Greeter from './components/Greeter'
 import Input from './components/Input'
@@ -37,7 +35,7 @@ function App() {
           </Button>
           <StyledButton>Styled Button</StyledButton>
           <Grid container spacing={5}>
-            <Card color="primary" />
+            <Card color="primary.dark" />
             <Card color='secondary' />
             <Card color='primary' />
             <Card color='secondary' />
