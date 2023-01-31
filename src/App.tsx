@@ -2,7 +2,8 @@ import { useState, useContext, useMemo } from 'react'
 import Greeter from './components/Greeter'
 import Input from './components/Input'
 import { Box, Button, Container, CssBaseline, Grid, createTheme } from '@mui/material'
-import Card from './components/Card'
+import ReviewCard from './components/Card'
+import Grid2 from '@mui/material/Unstable_Grid2/Grid2'
 
 // theme context
 import themeContext from './context/themeContext'
@@ -11,20 +12,19 @@ import themeContext from './context/themeContext'
 import { ThemeProvider } from '@mui/material'
 import { customThemeObj } from './theme/custom'
 import StyledButton from './components/styled/Button'
-// import theme from './theme/custom'
 
 function App() {
   const themeContextUse = useContext(themeContext)
   const [themeMode, setThemeMode] = useState(themeContextUse.themeMode)
-  // console.log(themeContextUse);
-
   const theme = useMemo(() => createTheme(customThemeObj(themeMode)), [themeMode])
 
   return (
     <themeContext.Provider value={{ themeMode, setThemeMode }}>
-      <CssBaseline>
-        <ThemeProvider theme={theme}>
-          <Container>
+      <ThemeProvider theme={theme}>
+        <CssBaseline>
+          <Container sx={{
+            p: 10
+          }}>
             {/* every MUI component has 3 common props - children, classes & sx */}
             <Greeter name='murtuza' message='welcome' />
 
@@ -36,24 +36,23 @@ function App() {
               mb: 2
             }}>
               <Input />
-              <Button color="secondary" variant="contained" onClick={() => {
+              <Button variant="contained" onClick={() => {
                 setThemeMode(prev => {
                   return prev === "light" ? "dark" : "light"
                 })
               }}>Change Theme {themeMode}
               </Button>
-              <StyledButton variant="contained">Styled Button</StyledButton>
+              {/* <StyledButton variant="contained">Styled Button</StyledButton> */}
             </Box>
-            
-            <Grid container spacing={5}>
-              <Card color="primary.dark" />
-              <Card color='secondary' />
-              <Card color='primary' />
-              <Card color='secondary' />
-            </Grid>
+
+            <Grid2 container spacing={5}>
+              {Array.from(Array(6)).map((_, index) => {
+                return <ReviewCard imgUrl='https://source.unsplash.com/random/1920x1080/?skyscrapers' color='primary' key={index} />
+              })}
+            </Grid2>
           </Container>
-        </ThemeProvider>
-      </CssBaseline>
+        </CssBaseline>
+      </ThemeProvider>
     </themeContext.Provider>
   )
 }

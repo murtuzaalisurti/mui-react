@@ -14,7 +14,7 @@ const Input = () => {
         <>
             <input type="text" onChange={handleChange} value={input} />
             <p>{input}</p>
-            <Button variant="contained" color='secondary'>MUI Button</Button>
+            <Button variant="contained">MUI Button</Button>
         </>
     )
 }
