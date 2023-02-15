@@ -1,7 +1,7 @@
 import { useState, useContext, useMemo } from 'react'
 import Greeter from './components/Greeter'
 import Input from './components/Input'
-import { Box, Button, Container, CssBaseline, Grid, createTheme } from '@mui/material'
+import { Box, Button, Container, CssBaseline, Grid, Theme, createTheme, useMediaQuery } from '@mui/material'
 import ReviewCard from './components/Card'
 import Grid2 from '@mui/material/Unstable_Grid2/Grid2'
 
@@ -16,7 +16,9 @@ import StyledButton from './components/styled/Button'
 function App() {
   const themeContextUse = useContext(themeContext)
   const [themeMode, setThemeMode] = useState(themeContextUse.themeMode)
+
   const theme = useMemo(() => createTheme(customThemeObj(themeMode)), [themeMode])
+  // const queryMatches = useMediaQuery((theme: Theme) => theme.breakpoints
 
   return (
     <themeContext.Provider value={{ themeMode, setThemeMode }}>

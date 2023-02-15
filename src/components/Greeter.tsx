@@ -10,7 +10,7 @@ const Greeter = ({ name, message }: GreetProps) => {
         <Box>
             {/* here the component will be "h1" but the variant will be "h3"
             which means that the element will look like "h5" but the tag will be "h1" */}
-            <Typography variant="h3" component={"h1"}>Hello {name}</Typography>
+            <Typography sx={{fontFamily: "'Times New Roman', 'Consolas', sans-serif"}} variant="h3" component={"h1"}>Hello {name}</Typography>
 
             {/* here the tag will be "h6" and the styling will be of "h6" as well */}
             <Typography variant="h6">{message ? message : ''}</Typography>
